@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NO ICE IN THE CUP | Fair Play 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-bright: #F4D03F;
+            --navy: #1a2332;
+            --navy-deep: #0d1219;
+            --orange: #FF6B35;
+            --red: #E63946;
+            --coral: #FF8B6B;
+            --white: #FAFAFA;
+            --cream: #F5F0E6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Oswald', sans-serif;
+            background: var(--navy-deep);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(255, 107, 53, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(26, 35, 50, 1) 0%, var(--navy-deep) 100%);
+            z-index: -1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(13, 18, 25, 0.95), transparent);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(13, 18, 25, 0.98);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-logo {
+            height: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+            color: var(--navy-deep);
+            padding: 0.8rem 1.8rem;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(212,175,55,0.03)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-logo {
+            width: 180px;
+            margin-bottom: 2rem;
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 10px 40px rgba(212, 175, 55, 0.3));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(4rem, 12vw, 10rem);
+            line-height: 0.9;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title span {
+            display: block;
+        }
+
+        .hero-title .no {
+            color: var(--white);
+            text-shadow: 0 0 60px rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-title .ice {
+            background: linear-gradient(135deg, var(--coral), var(--red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-title .in-the {
+            font-size: 0.4em;
+            letter-spacing: 20px;
+            color: var(--gold);
+            opacity: 0.8;
+        }
+
+        .hero-title .cup {
+            background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 400;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 2rem;
+        }
+
+        .hero-date {
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
+            color: var(--gold);
+            margin-top: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            stroke: var(--gold);
+            opacity: 0.6;
+        }
+
+        /* Fair Play Section */
+        .fair-play {
+            padding: 8rem 3rem;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--gold);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            letter-spacing: 2px;
+        }
+
+        .section-title .highlight {
+            color: var(--gold);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pillar-card {
+            background: linear-gradient(145deg, rgba(26, 35, 50, 0.8), rgba(13, 18, 25, 0.9));
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 4px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gold), var(--orange));
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.4s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .pillar-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .pillar-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pillar-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .pillar-desc {
+            font-weight: 300;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .pillar-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gold);
+            text-decoration: none;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: gap 0.3s ease;
+        }
+
+        .pillar-link:hover {
+            gap: 1rem;
+        }
+
+        /* Trainings Section */
+        .trainings {
+            padding: 8rem 3rem;
+            background: linear-gradient(180deg, transparent, rgba(212, 175, 55, 0.02), transparent);
+        }
+
+        .training-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .training-visual {
+            position: relative;
+        }
+
+        .training-image {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .training-badge {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--navy-deep);
+            font-family: 'Bebas Neue', sans-serif;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .training-badge .big {
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        .training-badge .small {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .training-content h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .training-content p {
+            font-weight: 300;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        .training-list {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .training-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            font-weight: 400;
+        }
+
+        .training-list li::before {
+            content: '⚽';
+            font-size: 1.2rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+            color: var(--navy-deep);
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 40px rgba(212, 175, 55, 0.5);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: transparent;
+            color: var(--gold);
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 2px solid var(--gold);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: var(--navy-deep);
+        }
+
+        /* Calendar Section */
+        .calendar {
+            padding: 8rem 3rem;
+            position: relative;
+        }
+
+        .calendar-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .city-card {
+            background: linear-gradient(145deg, rgba(26, 35, 50, 0.6), rgba(13, 18, 25, 0.8));
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 4px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .city-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: scale(1.02);
+        }
+
+        .city-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .city-stadium {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 1.5rem;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .match-date {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+        }
+
+        .match-date .date {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .match-date .stage {
+            font-size: 0.75rem;
+            color: var(--coral);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 8rem 3rem;
+            background: linear-gradient(180deg, transparent, rgba(255, 107, 53, 0.03), transparent);
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .map-visual {
+            background: linear-gradient(145deg, rgba(26, 35, 50, 0.8), rgba(13, 18, 25, 0.9));
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 4px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-placeholder {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .map-placeholder svg {
+            width: 80px;
+            margin-bottom: 1rem;
+            stroke: var(--gold);
+            opacity: 0.5;
+        }
+
+        .map-sidebar {
+            background: linear-gradient(145deg, rgba(26, 35, 50, 0.6), rgba(13, 18, 25, 0.8));
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 4px;
+            padding: 2rem;
+        }
+
+        .sidebar-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .business-list {
+            list-style: none;
+        }
+
+        .business-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .business-badge {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        .business-info h4 {
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+        }
+
+        .business-info span {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Downloads Section */
+        .downloads {
+            padding: 8rem 3rem;
+        }
+
+        .downloads-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .download-card {
+            background: linear-gradient(145deg, rgba(26, 35, 50, 0.6), rgba(13, 18, 25, 0.8));
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 4px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .download-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .download-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(255, 107, 53, 0.1));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+        }
+
+        .download-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .download-desc {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 1.5rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: gap 0.3s ease;
+        }
+
+        .download-btn:hover {
+            gap: 1rem;
+        }
+
+        /* Shop CTA */
+        .shop-cta {
+            padding: 6rem 3rem;
+            text-align: center;
+            background: linear-gradient(180deg, transparent, rgba(212, 175, 55, 0.05), transparent);
+            position: relative;
+        }
+
+        .shop-cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .shop-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .shop-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+
+        .shop-subtitle {
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Join Section */
+        .join {
+            padding: 8rem 3rem;
+        }
+
+        .join-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .join-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .join-desc {
+            font-weight: 300;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 3rem;
+        }
+
+        .join-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .join-input {
+            flex: 1;
+            background: rgba(26, 35, 50, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 2px;
+            padding: 1rem 1.5rem;
+            color: var(--white);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .join-input:focus {
+            border-color: var(--gold);
+        }
+
+        .join-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .join-btn {
+            background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+            color: var(--navy-deep);
+            border: none;
+            padding: 1rem 2rem;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .join-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .join-options {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .join-option {
+            text-align: center;
+        }
+
+        .join-option-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 0.8rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+        }
+
+        .join-option-text {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 3rem 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand img {
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.7;
+        }
+
+        .footer-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.4);
+            font-family: 'Space Mono', monospace;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Mobile hamburger */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .training-container {
+                grid-template-columns: 1fr;
+            }
+
+            .calendar-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .map-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(13, 18, 25, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .calendar-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .join-form {
+                flex-direction: column;
+            }
+
+            .join-options {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-bg"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <img src="logo.png" alt="No ICE in the Cup" class="nav-logo">
+        <ul class="nav-links">
+            <li><a href="#fair-play">Fair Play</a></li>
+            <li><a href="#trainings">Trainings</a></li>
+            <li><a href="#calendar">Calendar</a></li>
+            <li><a href="#map">Welcome Map</a></li>
+            <li><a href="#downloads">Resources</a></li>
+        </ul>
+        <a href="#join" class="nav-cta">Join Us</a>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="logo.png" alt="All Are Welcome United" class="hero-logo">
+            <h1 class="hero-title">
+                <span class="no">NO</span>
+                <span class="ice">ICE</span>
+                <span class="in-the">IN THE</span>
+                <span class="cup">CUP</span>
+            </h1>
+            <p class="hero-subtitle">Fair Play for All · World Cup 2026</p>
+            <p class="hero-date">June 11 — July 19, 2026 | USA • Canada • Mexico</p>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Fair Play Section -->
+    <section class="fair-play" id="fair-play">
+        <div class="section-header">
+            <p class="section-tag">Tier 2 • The Bridge</p>
+            <h2 class="section-title">The <span class="highlight">Fair Play</span> Standard</h2>
+            <p style="max-width: 700px; margin: 2rem auto 0; color: rgba(255,255,255,0.6); line-height: 1.8;">
+                Connecting our pillars — faith, legal, labor, veterans, arts, and civil society — 
+                to support businesses committed to the Welcome Standard. Be visible. Stand in solidarity.
+            </p>
+        </div>
+
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <div class="pillar-icon">⛪</div>
+                <h3 class="pillar-name">Faith</h3>
+                <p class="pillar-desc">Clergy-led vigils in fan zones. Training programs in non-cooperation. Standing witness for dignity and welcome.</p>
+                <a href="#" class="pillar-link">Get Involved <span>→</span></a>
+            </div>
+
+            <div class="pillar-card">
+                <div class="pillar-icon">⚖️</div>
+                <h3 class="pillar-name">Legal</h3>
+                <p class="pillar-desc">Pro bono networks providing advice to businesses. Know Your Rights trainings for hospitality staff. Rapid response legal aid.</p>
+                <a href="#" class="pillar-link">Get Involved <span>→</span></a>
+            </div>
+
+            <div class="pillar-card">
+                <div class="pillar-icon">🏭</div>
+                <h3 class="pillar-name">Labor</h3>
+                <p class="pillar-desc">Coordinating broad messaging and supporting existing labor-focused calls to action. Worker solidarity across host cities.</p>
+                <a href="#" class="pillar-link">Get Involved <span>→</span></a>
+            </div>
+
+            <div class="pillar-card">
+                <div class="pillar-icon">🎖️</div>
+                <h3 class="pillar-name">Veterans</h3>
+                <p class="pillar-desc">Communicating the role of National Guard vs ICE. Potential accompaniment for safety in fan zones. Protecting our communities.</p>
+                <a href="#" class="pillar-link">Get Involved <span>→</span></a>
+            </div>
+
+            <div class="pillar-card">
+                <div class="pillar-icon">🎭</div>
+                <h3 class="pillar-name">Arts & Culture</h3>
+                <p class="pillar-desc">The N.I.C.E. Brigade uses humor and creativity to break through. Art as resistance. Culture as conversation.</p>
+                <a href="#" class="pillar-link">Get Involved <span>→</span></a>
+            </div>
+
+            <div class="pillar-card">
+                <div class="pillar-icon">🤝</div>
+                <h3 class="pillar-name">Civil Society</h3>
+                <p class="pillar-desc">Supporting Welcome Standard businesses. Joining the N.I.C.E. Brigade. Attending vigils. Online and on-the-ground activation.</p>
+                <a href="#" class="pillar-link">Get Involved <span>→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trainings Section -->
+    <section class="trainings" id="trainings">
+        <div class="training-container">
+            <div class="training-visual">
+                <img src="stadium.png" alt="World Cup Stadium" class="training-image">
+                <div class="training-badge">
+                    <span class="big">FREE</span>
+                    <span class="small">Training</span>
+                </div>
+            </div>
+            <div class="training-content">
+                <h2>Keep ICE Out<br><span style="color: var(--gold)">of the Cup</span></h2>
+                <p>Equip yourself and your organization with the knowledge and tools to protect fans, workers, and communities during World Cup 2026. Our training programs are designed for every pillar.</p>
+                <ul class="training-list">
+                    <li>Know Your Rights: ICE Enforcement & the Law</li>
+                    <li>Hospitality Staff Protocols & Best Practices</li>
+                    <li>Rapid Response Coordination Training</li>
+                    <li>De-escalation & Community Safety</li>
+                    <li>Legal Observer Training for Fan Zones</li>
+                </ul>
+                <a href="#" class="btn-primary">
+                    Register Now
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#" class="btn-secondary">View Schedule</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section class="calendar" id="calendar">
+        <div class="section-header">
+            <p class="section-tag">Activations</p>
+            <h2 class="section-title">Match <span class="highlight">Calendar</span></h2>
+            <p style="max-width: 600px; margin: 2rem auto 0; color: rgba(255,255,255,0.6); line-height: 1.8;">
+                Six pilot cities. Coordinated activations. Find your city and join the movement.
+            </p>
+        </div>
+
+        <div class="calendar-grid">
+            <div class="city-card">
+                <h3 class="city-name">Boston</h3>
+                <p class="city-stadium">Gillette Stadium</p>
+                <div class="match-date"><span class="date">June 13</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 16</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 19</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 23</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 26</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 29</span><span class="stage">Round of 32</span></div>
+                <div class="match-date"><span class="date">July 9</span><span class="stage">Quarter-final</span></div>
+            </div>
+
+            <div class="city-card">
+                <h3 class="city-name">Kansas City</h3>
+                <p class="city-stadium">Arrowhead Stadium</p>
+                <div class="match-date"><span class="date">June 16</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 20</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 25</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 27</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">July 3</span><span class="stage">Round of 32</span></div>
+                <div class="match-date"><span class="date">July 11</span><span class="stage">Quarter-final</span></div>
+            </div>
+
+            <div class="city-card">
+                <h3 class="city-name">Miami</h3>
+                <p class="city-stadium">Hard Rock Stadium</p>
+                <div class="match-date"><span class="date">June 15</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 21</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 24</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 27</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">July 3</span><span class="stage">Round of 32</span></div>
+                <div class="match-date"><span class="date">July 11</span><span class="stage">Quarter-final</span></div>
+                <div class="match-date"><span class="date">July 18</span><span class="stage">Bronze Match</span></div>
+            </div>
+
+            <div class="city-card">
+                <h3 class="city-name">Philadelphia</h3>
+                <p class="city-stadium">Lincoln Financial Field</p>
+                <div class="match-date"><span class="date">June 14</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 19</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 22</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 25</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">July 4</span><span class="stage">Round of 16</span></div>
+            </div>
+
+            <div class="city-card">
+                <h3 class="city-name">Seattle</h3>
+                <p class="city-stadium">Lumen Field</p>
+                <div class="match-date"><span class="date">June 15</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 19</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 24</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 26</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">July 1</span><span class="stage">Round of 32</span></div>
+                <div class="match-date"><span class="date">July 6</span><span class="stage">Round of 16</span></div>
+            </div>
+
+            <div class="city-card">
+                <h3 class="city-name">Dallas</h3>
+                <p class="city-stadium">AT&T Stadium</p>
+                <div class="match-date"><span class="date">June 14</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 17</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 22</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 25</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">June 27</span><span class="stage">Group</span></div>
+                <div class="match-date"><span class="date">July 3</span><span class="stage">Round of 32</span></div>
+                <div class="match-date"><span class="date">July 6</span><span class="stage">Round of 16</span></div>
+                <div class="match-date"><span class="date">July 14</span><span class="stage">Semi-final</span></div>
+            </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 3rem; color: var(--gold); font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 3px;">
+            🏆 FINAL: July 19, 2026 — MetLife Stadium, New York/New Jersey
+        </p>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section" id="map">
+        <div class="section-header">
+            <p class="section-tag">Economic Solidarity</p>
+            <h2 class="section-title"><span class="highlight">Welcome</span> Standard Map</h2>
+            <p style="max-width: 600px; margin: 2rem auto 0; color: rgba(255,255,255,0.6); line-height: 1.8;">
+                Find and support businesses displaying the Welcome Seal. Economic solidarity means spending where it matters.
+            </p>
+        </div>
+
+        <div class="map-container">
+            <div class="map-visual">
+                <div class="map-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    <p>Interactive Map</p>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Coming Soon</p>
+                </div>
+            </div>
+            <div class="map-sidebar">
+                <h3 class="sidebar-title">Featured Businesses</h3>
+                <ul class="business-list">
+                    <li class="business-item">
+                        <div class="business-badge">🏨</div>
+                        <div class="business-info">
+                            <h4>Sample Hotel Name</h4>
+                            <span>Seattle, WA</span>
+                        </div>
+                    </li>
+                    <li class="business-item">
+                        <div class="business-badge">🍽️</div>
+                        <div class="business-info">
+                            <h4>Sample Restaurant</h4>
+                            <span>Miami, FL</span>
+                        </div>
+                    </li>
+                    <li class="business-item">
+                        <div class="business-badge">☕</div>
+                        <div class="business-info">
+                            <h4>Sample Café</h4>
+                            <span>Philadelphia, PA</span>
+                        </div>
+                    </li>
+                    <li class="business-item">
+                        <div class="business-badge">🏪</div>
+                        <div class="business-info">
+                            <h4>Sample Shop</h4>
+                            <span>Dallas, TX</span>
+                        </div>
+                    </li>
+                </ul>
+                <a href="#" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 1.5rem;">
+                    Add Your Business
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section class="downloads" id="downloads">
+        <div class="section-header">
+            <p class="section-tag">Toolkit</p>
+            <h2 class="section-title">Downloadable <span class="highlight">Resources</span></h2>
+        </div>
+
+        <div class="downloads-grid">
+            <div class="download-card">
+                <div class="download-icon">📋</div>
+                <h3 class="download-title">Know Your Rights Guide</h3>
+                <p class="download-desc">Essential information for fans, workers, and businesses on legal rights during ICE encounters.</p>
+                <a href="#" class="download-btn">Download PDF <span>→</span></a>
+            </div>
+
+            <div class="download-card">
+                <div class="download-icon">🏷️</div>
+                <h3 class="download-title">Welcome Seal Kit</h3>
+                <p class="download-desc">Printable Welcome Standard seals and display materials for businesses.</p>
+                <a href="#" class="download-btn">Download Kit <span>→</span></a>
+            </div>
+
+            <div class="download-card">
+                <div class="download-icon">📢</div>
+                <h3 class="download-title">Social Media Pack</h3>
+                <p class="download-desc">Graphics, templates, and messaging for your social channels.</p>
+                <a href="#" class="download-btn">Download Pack <span>→</span></a>
+            </div>
+
+            <div class="download-card">
+                <div class="download-icon">📖</div>
+                <h3 class="download-title">Organizer Handbook</h3>
+                <p class="download-desc">Complete guide for local coordinators and community leaders.</p>
+                <a href="#" class="download-btn">Download PDF <span>→</span></a>
+            </div>
+
+            <div class="download-card">
+                <div class="download-icon">🎨</div>
+                <h3 class="download-title">Poster & Flyer Kit</h3>
+                <p class="download-desc">Print-ready materials for fan zones, businesses, and community spaces.</p>
+                <a href="#" class="download-btn">Download Kit <span>→</span></a>
+            </div>
+
+            <div class="download-card">
+                <div class="download-icon">🎥</div>
+                <h3 class="download-title">Training Videos</h3>
+                <p class="download-desc">Video modules for Know Your Rights and de-escalation training.</p>
+                <a href="#" class="download-btn">Watch Now <span>→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop CTA -->
+    <section class="shop-cta">
+        <div class="shop-content">
+            <h2 class="shop-title">Wear Your <span style="color: var(--gold)">Solidarity</span></h2>
+            <p class="shop-subtitle">Official NO ICE IN THE CUP merchandise. All proceeds support Fair Play activations.</p>
+            <a href="#" class="btn-primary">
+                Visit Shop
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section class="join" id="join">
+        <div class="join-container">
+            <h2 class="join-title">Join the <span style="color: var(--gold)">Movement</span></h2>
+            <p class="join-desc">
+                Whether you're an individual, organization, or business leader — there's a place for you in Fair Play. 
+                Sign up for updates, find your local activation, and become part of a historic moment.
+            </p>
+            <form class="join-form">
+                <input type="email" class="join-input" placeholder="Enter your email">
+                <button type="submit" class="join-btn">Subscribe</button>
+            </form>
+            <div class="join-options">
+                <div class="join-option">
+                    <div class="join-option-icon">👤</div>
+                    <p class="join-option-text">Individual Supporter</p>
+                </div>
+                <div class="join-option">
+                    <div class="join-option-icon">🏢</div>
+                    <p class="join-option-text">Organization Partner</p>
+                </div>
+                <div class="join-option">
+                    <div class="join-option-icon">🏪</div>
+                    <p class="join-option-text">Business Ally</p>
+                </div>
+                <div class="join-option">
+                    <div class="join-option-icon">🌟</div>
+                    <p class="join-option-text">Community Leader</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="logo.png" alt="No ICE in the Cup">
+                <p>A Big Tent initiative connecting pillars of society to ensure all fans, workers, and visitors feel welcome and safe during World Cup 2026.</p>
+            </div>
+            <div>
+                <h4 class="footer-title">Get Involved</h4>
+                <ul class="footer-links">
+                    <li><a href="#fair-play">Fair Play Pillars</a></li>
+                    <li><a href="#trainings">Trainings</a></li>
+                    <li><a href="#calendar">Calendar</a></li>
+                    <li><a href="#map">Welcome Map</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="#downloads">Downloads</a></li>
+                    <li><a href="#">Know Your Rights</a></li>
+                    <li><a href="#">For Businesses</a></li>
+                    <li><a href="#">Press Kit</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">Partner With Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">© 2026 No ICE in the Cup · A Big Tent Initiative</p>
+            <div class="social-links">
+                <a href="#">𝕏</a>
+                <a href="#">IG</a>
+                <a href="#">FB</a>
+                <a href="#">TT</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        // Smooth reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.pillar-card, .city-card, .download-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
