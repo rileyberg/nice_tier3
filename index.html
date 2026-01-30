@@ -1036,7 +1036,17 @@
         }
     </style>
 </head>
-<body>
+<body style="display:none" id="protected-content">
+    <script>
+        var password = "Charlotte26"; // Change this to your desired password
+        var pass1 = prompt('Access Restricted. Please enter the password:','');
+        if (pass1 == password) {
+            document.getElementById('protected-content').style.display = 'block';
+        } else {
+            alert('Incorrect password.');
+            window.location.reload();
+        }
+    </script>
     <div class="gradient-bg"></div>
 
     <!-- Navigation -->
